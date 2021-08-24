@@ -9,7 +9,8 @@ class Background(pygame.sprite.Sprite):
         self.res = res
         self.screen = pygame.display.set_mode(res)
         self.surface = pygame.Surface(res)
-        self.image = self.imgLoad(image)
+        #commented out image since not actually using
+        #self.image = self.imgLoad(image)
 
         pygame.display.set_caption("Privilege Recognition Task")
 
@@ -101,8 +102,7 @@ class PauseScreen:
         self.nextRoundRect = (460,550,self.font.size('Next Round')[0] + 10,self.font.size('Next Round')[1] + 10)
         #self.quitRect  = (470,680,100,50)
         #self.titleRect = (119,134,400,100)
-        #self.image = self.imgLoad("highwayright.png")
-        #self.titleImage = self.imgLoad("logo.png")
+
 
     def returnQuestionText(self):
         retList = []
