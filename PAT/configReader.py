@@ -1,7 +1,7 @@
 from os import path
 from exe import EXE
 import json
-from exe import EXE
+
 class ConfigReader:
 
     #requires a json formated as in the default directory
