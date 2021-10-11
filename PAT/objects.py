@@ -176,7 +176,6 @@ class Enemy(Agent):
             self.coinObj = self.getNearestCoinCoord()
         else:
             self.coinObj = self.getRandCoinCoord()
-            print(f"set objective to {self.coinObj}")
 
         
         
