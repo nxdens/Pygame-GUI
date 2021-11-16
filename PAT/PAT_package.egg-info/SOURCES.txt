@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+PAT/PAT_package.egg-info/PKG-INFO
+PAT/PAT_package.egg-info/SOURCES.txt
+PAT/PAT_package.egg-info/dependency_links.txt
+PAT/PAT_package.egg-info/top_level.txt

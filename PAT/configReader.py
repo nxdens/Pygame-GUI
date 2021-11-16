@@ -8,7 +8,7 @@ class ConfigReader:
     def parseToDict(filename,dirName = "default"):
 
         asset_url = EXE.resource_path(f"configs/{dirName}/{filename}.json")
-
+        print(asset_url)
         with open(asset_url,"r+") as config:
             d = json.load(config)
         print(f"loaded config {filename}")
