@@ -26,47 +26,54 @@ while True:
 
             break
 #if nothing is entered, empty string is false
-print("enter block1 for the preset name")
 
 class PAT:
     def __init__(self):
         pygame.init()
 
         
-        self.presetName = input("Please enter the preset name: ")
+        self.presetName = "block1"
 
         #levels is a list of level names, which will be individual jsons in the respective preset directory
-        while True:
-            try:
+#        while True:
+#            try:
                 
                 #RES is fullScreen
-                self.mainConfig = ConfigReader.parseToDict("main",self.presetName)
+#                self.mainConfig = ConfigReader.parseToDict("main",self.presetName)
                 
-            except Exception:
-                self.presetName = input(f"Preset {self.presetName} does not exist. Try a different name: ")
-                continue
+#            except Exception:
+#                self.presetName = input(f"Preset {self.presetName} does not exist. Try a different name: ")
+#                continue
+#
+#            break
 
-            break
-
-        
-
-        self.patientName = input("Please enter your name: ")
-        while (len(self.patientName) == 0):
-            self.patientName = input("Invalid Name. Try again: ")
-        self.levels = self.mainConfig["levels"]
-        
-        print(self.levels)
+        #TODO: make this a GUI
+        #self.patientName = input("Please enter your name: ")
+        #while (len(self.patientName) == 0):
+        #    self.patientName = input("Invalid Name. Try again: ")
+        #self.levels = self.mainConfig["levels"]
+        #TODO: display start menu here
         self.displayInfo = pygame.display.Info()
         self.res = (self.displayInfo.current_w, self.displayInfo.current_h)
         self.clock = pygame.time.Clock()
-
-        
-    
-
         self.time = datetime.now().strftime("%H_%M_%S")
+        
         
         #self.font = pygame.font.SysFont('arial',20)
         self.background = Background(self.res)
+
+        start = StartScreen(self.background)
+
+        while not start.finished:
+            start.mainLoop()
+
+        self.patientName = start.name
+        self.mainConfig = ConfigReader.parseToDict("main",self.presetName)
+        self.levels = self.mainConfig["levels"]
+
+        
+        print(self.levels)
+        
         
 
     def main_loop(self):
